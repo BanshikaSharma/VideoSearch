@@ -34,3 +34,799 @@
     body::before {
       content: "";
       position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url("https://placehold.co/600x600/png?text=Geometric+Symbols+Pattern&font=Roboto+Mono&font-weight=900&font-size=48&color=ffffff33");
+      background-repeat: repeat;
+      background-size: 150px 150px;
+      opacity: 0.12;
+      pointer-events: none;
+      z-index: 0;
+      mix-blend-mode: screen;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(90deg, #003366, #001f4d);
+      box-shadow: 0 0 20px #001f4dcc;
+      padding: 1.5rem 1rem;
+      z-index: 100;
+      text-align: center;
+      user-select: none;
+    }
+
+    header h1 {
+      font-family: "Dancing Script", cursive;
+      font-weight: 700;
+      font-size: 3rem;
+      letter-spacing: 0.1em;
+      color: #66ccff;
+      text-shadow:
+        0 0 10px #66ccff,
+        0 0 20px #3399ff,
+        0 0 30px #003366;
+      margin: 0;
+    }
+
+    main {
+      margin-top: 6.5rem;
+      flex-grow: 1;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 1rem 1.5rem 3rem;
+      z-index: 10;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: transparent;
+    }
+
+    h2 {
+      font-family: "Dancing Script", cursive;
+      font-weight: 700;
+      font-size: 3rem;
+      margin-bottom: 2.5rem;
+      text-align: center;
+      background: linear-gradient(90deg, #66ccff, #3399ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      user-select: none;
+      text-shadow:
+        0 0 15px #66ccff,
+        0 0 25px #3399ff;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    #search-container {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      border-radius: 9999px;
+      box-shadow:
+        0 0 20px #3399ff,
+        inset 0 0 15px #66ccff;
+      background: #001f4d;
+      overflow: hidden;
+      margin-bottom: 3rem;
+      user-select: none;
+    }
+
+    #search-query {
+      flex-grow: 1;
+      padding: 1.25rem 2rem;
+      font-size: 1.5rem;
+      font-weight: 900;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: #99ccff;
+      text-shadow:
+        0 0 8px #66ccff;
+      font-family: "Roboto Mono", monospace;
+      letter-spacing: 0.05em;
+    }
+
+    #search-query::placeholder {
+      color: #66ccffcc;
+      opacity: 1;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+    }
+
+    #search-button {
+      background: linear-gradient(90deg, #3399ff, #66ccff);
+      border: none;
+      padding: 0 2.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 900;
+      color: white;
+      transition: background 0.3s ease, transform 0.2s ease;
+      user-select: none;
+      box-shadow:
+        0 0 15px #3399ff,
+        0 0 30px #66ccff;
+    }
+
+    #search-button:hover,
+    #search-button:focus {
+      background: linear-gradient(90deg, #66ccff, #3399ff);
+      transform: scale(1.15);
+      box-shadow:
+        0 0 25px #66ccff,
+        0 0 50px #3399ff;
+      outline: none;
+    }
+
+    #results {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      width: 100%;
+      max-width: 1200px;
+      margin-bottom: 3rem;
+      user-select: none;
+    }
+
+    .video-card {
+      background: linear-gradient(145deg, #3399ff, #66ccff);
+      border-radius: 1.5rem;
+      box-shadow:
+        0 6px 25px rgba(51, 153, 255, 0.8),
+        0 6px 25px rgba(102, 204, 255, 0.8);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      user-select: none;
+      border: 3px solid transparent;
+    }
+
+    .video-card:focus-within,
+    .video-card:hover {
+      transform: translateY(-10px);
+      box-shadow:
+        0 12px 40px rgba(51, 153, 255, 1),
+        0 12px 40px rgba(102, 204, 255, 1);
+      border-color: #fff;
+      outline: none;
+    }
+
+    .video-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.7));
+      user-select: none;
+    }
+
+    .video-info {
+      padding: 1.25rem 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .video-title {
+      font-weight: 900;
+      font-size: 1.25rem;
+      color: #e0f0ff;
+      margin-bottom: 1.25rem;
+      line-height: 1.3;
+      text-shadow:
+        2px 2px 6px rgba(0, 0, 0, 0.85);
+      user-select: text;
+      letter-spacing: 0.05em;
+    }
+
+    .play-button {
+      background: #001f4d;
+      border-radius: 9999px;
+      padding: 0.75rem 2rem;
+      font-weight: 900;
+      font-size: 1.125rem;
+      color: #66ccff;
+      border: 3px solid #66ccff;
+      text-align: center;
+      transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease,
+        box-shadow 0.3s ease;
+      user-select: none;
+      letter-spacing: 0.1em;
+      box-shadow: 0 0 10px #66ccff;
+    }
+
+    .play-button:hover,
+    .play-button:focus {
+      background: #66ccff;
+      color: #001f4d;
+      transform: scale(1.15);
+      box-shadow:
+        0 0 20px #66ccff,
+        0 0 40px #3399ff;
+      outline: none;
+      cursor: pointer;
+    }
+
+    #video-player {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 3rem;
+      width: 100%;
+      max-width: 960px;
+      user-select: none;
+    }
+
+    #youtube-iframe {
+      border-radius: 1.5rem;
+      box-shadow:
+        0 12px 40px rgba(102, 204, 255, 0.9),
+        0 12px 40px rgba(51, 153, 255, 0.9);
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+      user-select: none;
+      background: #001f4d;
+    }
+
+    footer {
+      background: linear-gradient(90deg, #003366, #001f4d);
+      padding: 1.25rem 1rem;
+      text-align: center;
+      font-weight: 900;
+      font-size: 1.125rem;
+      color: #66ccff;
+      box-shadow: 0 -6px 20px rgba(51, 153, 255, 0.7);
+      user-select: none;
+      user-drag: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+
+    footer a {
+      color: #66ccff;
+      margin: 0 1rem;
+      transition: color 0.3s ease;
+      user-select: none;
+    }
+
+    footer a:hover,
+    footer a:focus {
+      color: #99ddff;
+      outline: none;
+    }
+
+    /* Scrollbar for results */
+    #results {
+      scrollbar-width: thin;
+      scrollbar-color: #66ccff #001f4d;
+    }
+    #results::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    #results::-webkit-scrollbar-track {
+      background: #001f4d;
+      border-radius: 10px;
+    }
+    #results::-webkit-scrollbar-thumb {
+      background: #66ccff;
+      border-radius: 10px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 640px) {
+      header h1 {
+        font-size: 2.25rem;
+      }
+      h2 {
+        font-size: 2rem;
+        max-width: 100%;
+      }
+      #search-container {
+        flex-direction: column;
+        border-radius: 1.5rem;
+      }
+      #search-query {
+        border-radius: 1.5rem 1.5rem 0 0;
+        font-size: 1.25rem;
+        padding: 1rem 1.5rem;
+      }
+      #search-button {
+        border-radius: 0 0 1.5rem 1.5rem;
+        width: 100%;
+        padding: 1.25rem 0;
+        font-size: 1.75rem;
+      }
+      .video-card img {
+        height: 140px;
+      }
+      .video-title {
+        font-size: 1.125rem;
+      }
+      .play-button {
+        font-size: 1rem;
+        padding: 0.6rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+   
+  </header>
+  <main>
+    <h2>GUM - Video Search💜</h2>
+    <div id="search-container" role="search">
+      <input
+        id="search-query"
+        type="text"
+        placeholder="Search for royalty-free music..."
+        aria-label="Search for royalty-free music"
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <button id="search-button" aria-label="Search videos">🔍</button>
+    </div>
+    <div
+      id="results"
+      aria-live="polite"
+      aria-atomic="true"
+      aria-relevant="additions"
+      tabindex="0"
+    >
+      <div class="video-card" tabindex="0">
+        <img
+          src="https://i.ytimg.com/vi/3a6Hw18MkGk/mqdefault.jpg"
+          alt="Thumbnail image of video titled 'Urban Hi Tech Intro - Instrumental/Background Music (Royalty Free Music)', showing a colorful scene from the video"
+          loading="lazy"
+        />
+        <div class="video-info">
+          <h3
+            class="video-title"
+            title="Urban Hi Tech Intro - Instrumental/Background Music (Royalty Free Music)"
+          >
+            Urban Hi Tech Intro - Instrumental/Background Music (Royalty Free
+            Music)
+          </h3>
+          <button
+            class="play-button"
+            aria-label="Play video titled Urban Hi Tech Intro - Instrumental/Background Music (Royalty Free Music)"
+            onclick="playVideo('3a6Hw18MkGk')"
+          >
+            PLAY ▶
+          </button>
+        </div>
+      </div>
+      <div class="video-card" tabindex="0">
+        <img
+          src="https://i.ytimg.com/vi/GdUFoBmp1zQ/mqdefault.jpg"
+          alt="Thumbnail image of video titled 'ROYALTY FREE Corporate Background Music / Hi-Tech Presentation Royalty Free Music', showing a colorful scene from the video"
+          loading="lazy"
+        />
+        <div class="video-info">
+          <h3
+            class="video-title"
+            title="ROYALTY FREE Corporate Background Music / Hi-Tech Presentation Royalty Free Music"
+          >
+            ROYALTY FREE Corporate Background Music / Hi-Tech Presentation
+            Royalty Free Music
+          </h3>
+          <button
+            class="play-button"
+            aria-label="Play video titled ROYALTY FREE Corporate Background Music / Hi-Tech Presentation Royalty Free Music"
+            onclick="playVideo('GdUFoBmp1zQ')"
+          >
+            PLAY ▶
+          </button>
+        </div>
+      </div>
+      <div class="video-card" tabindex="0">
+        <img
+          src="https://i.ytimg.com/vi/rhCUyawDlTY/mqdefault.jpg"
+          alt="Thumbnail image of video titled 'Dark Hi Tech Audio Logo - Buy Royalty Free Music License', showing a colorful scene from the video"
+          loading="lazy"
+        />
+        <div class="video-info">
+          <h3
+            class="video-title"
+            title="Dark Hi Tech Audio Logo - Buy Royalty Free Music License"
+          >
+            Dark Hi Tech Audio Logo - Buy Royalty Free Music License
+          </h3>
+          <button
+            class="play-button"
+            aria-label="Play video titled Dark Hi Tech Audio Logo - Buy Royalty Free Music License"
+            onclick="playVideo('rhCUyawDlTY')"
+          >
+            PLAY ▶
+          </button>
+        </div>
+      </div>
+      <div class="video-card" tabindex="0">
+        <img
+          src="https://i.ytimg.com/vi/I5Wkf2n-8pw/mqdefault.jpg"
+          alt="Thumbnail image of video titled 'Where to find free music For YouTube Videos', showing a colorful scene from the video"
+          loading="lazy"
+        />
+        <div class="video-info">
+          <h3
+            class="video-title"
+            title="Where to find free music For YouTube Videos"
+          >
+            Where to find free music For YouTube Videos
+          </h3>
+          <button
+            class="play-button"
+            aria-label="Play video titled Where to find free music For YouTube Videos"
+            onclick="playVideo('I5Wkf2n-8pw')"
+          >
+            PLAY ▶
+          </button>
+        </div>
+      </div>
+      <div class="video-card" tabindex="0">
+        <img
+          src="https://i.ytimg.com/vi/2B74fpT9wSE/mqdefault.jpg"
+          alt="Thumbnail image of video titled '(ROYALTY FREE) Epic Background Music For Hi-Tech Trailer Videos', showing a colorful scene from the video"
+          loading="lazy"
+        />
+        <div class="video-info">
+          <h3
+            class="video-title"
+            title="(ROYALTY FREE) Epic Background Music For Hi-Tech Trailer Videos"
+          >
+            (ROYALTY FREE) Epic Background Music For Hi-Tech Trailer Videos
+          </h3>
+          <button
+            class="play-button"
+            aria-label="Play video titled (ROYALTY FREE) Epic Background Music For Hi-Tech Trailer Videos"
+            onclick="playVideo('2B74fpT9wSE')"
+          >
+            PLAY ▶
+          </button>
+        </div>
+      </div>
+      <div class="video-card" tabindex="0">
+        <img
+          src="https://i.ytimg.com/vi/DN-fhLGNC7A/mqdefault.jpg"
+          alt="Thumbnail image of video titled 'Hi Tech Cinematic Teaser - Royalty-Free Background Music | Cinematic', showing a colorful scene from the video"
+          loading="lazy"
+        />
+        <div class="video-info">
+          <h3
+            class="video-title"
+            title="Hi Tech Cinematic Teaser - Royalty-Free Background Music | Cinematic"
+          >
+            Hi Tech Cinematic Teaser - Royalty-Free Background Music | Cinematic
+          </h3>
+          <button
+            class="play-button"
+            aria-label="Play video titled Hi Tech Cinematic Teaser - Royalty-Free Background Music | Cinematic"
+            onclick="playVideo('DN-fhLGNC7A')"
+          >
+            PLAY ▶
+          </button>
+        </div>
+      </div>
+      <div class="video-card" tabindex="0">
+        <img
+          src="https://i.ytimg.com/vi/xr2CVPf_gT8/mqdefault.jpg"
+          alt="Thumbnail image of video titled 'Hi Tech Logo Royalty Free Music', showing a colorful scene from the video"
+          loading="lazy"
+        />
+        <div class="video-info">
+          <h3 class="video-title" title="Hi Tech Logo Royalty Free Music">
+            Hi Tech Logo Royalty Free Music
+          </h3>
+          <button
+            class="play-button"
+            aria-label="Play video titled Hi Tech Logo Royalty Free Music"
+            onclick="playVideo('xr2CVPf_gT8')"
+          >
+            PLAY ▶
+          </button>
+        </div>
+      </div>
+      <div class="video-card" tabindex="0">
+        <img
+          src="https://i.ytimg.com/vi/H4mxDVUzgmA/mqdefault.jpg"
+          alt="Thumbnail image of video titled 'Can You Say Hi? - Royalty Free Music by Stockwaves', showing a colorful scene from the video"
+          loading="lazy"
+        />
+        <div class="video-info">
+          <h3
+            class="video-title"
+            title="Can You Say Hi? - Royalty Free Music by Stockwaves"
+          >
+            Can You Say Hi? - Royalty Free Music by Stockwaves
+          </h3>
+          <button
+            class="play-button"
+            aria-label="Play video titled Can You Say Hi? - Royalty Free Music by Stockwaves"
+            onclick="playVideo('H4mxDVUzgmA')"
+          >
+            PLAY ▶
+          </button>
+        </div>
+      </div>
+      <div class="video-card" tabindex="0">
+        <img
+          src="https://i.ytimg.com/vi/APTyWU1fSjc/mqdefault.jpg"
+          alt="Thumbnail image of video titled '【4tトラック運転手】秋田市→横浜車庫🚚夕方積んで帰るだけ', showing a colorful scene from the video"
+          loading="lazy"
+        />
+        <div class="video-info">
+          <h3
+            class="video-title"
+            title="【4tトラック運転手】秋田市→横浜車庫🚚夕方積んで帰るだけ"
+          >
+            【4tトラック運転手】秋田市→横浜車庫🚚夕方積んで帰るだけ
+          </h3>
+          <button
+            class="play-button"
+            aria-label="Play video titled 【4tトラック運転手】秋田市→横浜車庫🚚夕方積んで帰るだけ"
+            onclick="playVideo('APTyWU1fSjc')"
+          >
+            PLAY ▶
+          </button>
+        </div>
+      </div>
+      <div class="video-card" tabindex="0">
+        <img
+          src="https://i.ytimg.com/vi/cTpz2d7E-Jw/mqdefault.jpg"
+          alt="Thumbnail image of video titled 'How To Get Copyright Free Music ✅ #shorts (5/100)', showing a colorful scene from the video"
+          loading="lazy"
+        />
+        <div class="video-info">
+          <h3
+            class="video-title"
+            title="How To Get Copyright Free Music ✅ #shorts (5/100)"
+          >
+            How To Get Copyright Free Music ✅ #shorts (5/100)
+          </h3>
+          <button
+            class="play-button"
+            aria-label="Play video titled How To Get Copyright Free Music ✅ #shorts (5/100)"
+            onclick="playVideo('cTpz2d7E-Jw')"
+          >
+            PLAY ▶
+          </button>
+        </div>
+      </div>
+      <div class="video-card" tabindex="0">
+        <img
+          src="https://i.ytimg.com/vi/HtO9vS4v1u0/mqdefault.jpg"
+          alt="Thumbnail image of video titled 'Hi Tech Ident Royalty Free Music', showing a colorful scene from the video"
+          loading="lazy"
+        />
+        <div class="video-info">
+          <h3 class="video-title" title="Hi Tech Ident Royalty Free Music">
+            Hi Tech Ident Royalty Free Music
+          </h3>
+          <button
+            class="play-button"
+            aria-label="Play video titled Hi Tech Ident Royalty Free Music"
+            onclick="playVideo('HtO9vS4v1u0')"
+          >
+            PLAY ▶
+          </button>
+        </div>
+      </div>
+      <div class="video-card" tabindex="0">
+        <img
+          src="https://i.ytimg.com/vi/ZV1WlHBneNM/mqdefault.jpg"
+          alt="Thumbnail image of video titled 'Hi Tech Corporate - Royalty Free Music', showing a colorful scene from the video"
+          loading="lazy"
+        />
+        <div class="video-info">
+          <h3 class="video-title" title="Hi Tech Corporate - Royalty Free Music">
+            Hi Tech Corporate - Royalty Free Music
+          </h3>
+          <button
+            class="play-button"
+            aria-label="Play video titled Hi Tech Corporate - Royalty Free Music"
+            onclick="playVideo('ZV1WlHBneNM')"
+          >
+            PLAY ▶
+          </button>
+        </div>
+      </div>
+      <div class="video-card" tabindex="0">
+        <img
+          src="https://i.ytimg.com/vi/VQJy-EZV-bU/mqdefault.jpg"
+          alt="Thumbnail image of video titled 'Epic Hi Tech Logo Royalty Free Music', showing a colorful scene from the video"
+          loading="lazy"
+        />
+        <div class="video-info">
+          <h3
+            class="video-title"
+            title="Epic Hi Tech Logo Royalty Free Music"
+          >
+            Epic Hi Tech Logo Royalty Free Music
+          </h3>
+          <button
+            class="play-button"
+            aria-label="Play video titled Epic Hi Tech Logo Royalty Free Music"
+            onclick="playVideo('VQJy-EZV-bU')"
+          >
+            PLAY ▶
+          </button>
+        </div>
+      </div>
+      <div class="video-card" tabindex="0">
+        <img
+          src="https://i.ytimg.com/vi/nqy99KdkpMU/mqdefault.jpg"
+          alt="Thumbnail image of video titled 'Background Music For Videos [Hello World - JIGLR] Free Royalty Free Music No Copyright | RFM - NCM', showing a colorful scene from the video"
+          loading="lazy"
+        />
+        <div class="video-info">
+          <h3
+            class="video-title"
+            title="Background Music For Videos [Hello World - JIGLR] Free Royalty Free Music No Copyright | RFM - NCM"
+          >
+            Background Music For Videos [Hello World - JIGLR] Free Royalty Free
+            Music No Copyright | RFM - NCM
+          </h3>
+          <button
+            class="play-button"
+            aria-label="Play video titled Background Music For Videos [Hello World - JIGLR] Free Royalty Free Music No Copyright | RFM - NCM"
+            onclick="playVideo('nqy99KdkpMU')"
+          >
+            PLAY ▶
+          </button>
+        </div>
+      </div>
+      <div class="video-card" tabindex="0">
+        <img
+          src="https://i.ytimg.com/vi/DpcAknF5qFg/mqdefault.jpg"
+          alt="Thumbnail image of video titled 'Corporate Technology Music - Royalty Free Music For Hi Tech Corporate Video Commercial Use', showing a colorful scene from the video"
+          loading="lazy"
+        />
+        <div class="video-info">
+          <h3
+            class="video-title"
+            title="Corporate Technology Music - Royalty Free Music For Hi Tech Corporate Video Commercial Use"
+          >
+            Corporate Technology Music - Royalty Free Music For Hi Tech Corporate
+            Video Commercial Use
+          </h3>
+          <button
+            class="play-button"
+            aria-label="Play video titled Corporate Technology Music - Royalty Free Music For Hi Tech Corporate Video Commercial Use"
+            onclick="playVideo('DpcAknF5qFg')"
+          >
+            PLAY ▶
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="video-player" aria-label="Video player">
+      <iframe
+        id="youtube-iframe"
+        src=""
+        allowfullscreen
+        title="YouTube video player"
+        aria-hidden="true"
+      ></iframe>
+    </div>
+  </main>
+
+  <footer>
+    © 2024 GUM. All rights reserved.
+    <div style="margin-top: 0.5rem;">
+      <a
+        href="https://www.linkedin.com/in/banshika-sharma-0153b52a7"
+        aria-label="LinkedIn"
+        target="_blank"
+        rel="noopener noreferrer"
+        ><i class="fab fa-linkedin fa-lg"></i
+      ></a>
+      <a href="#" aria-label="Twitter" target="_blank" rel="noopener noreferrer"
+        ><i class="fab fa-twitter fa-lg"></i
+      ></a>
+      <a
+        href="https://www.instagram.com/__banshikasharma_?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw=="
+        aria-label="Instagram"
+        target="_blank"
+        rel="noopener noreferrer"
+        ><i class="fab fa-instagram fa-lg"></i
+      ></a>
+      
+    </div>
+  </footer>
+
+  <script>
+    const API_KEY = "AIzaSyDy6IAF8E7Wx6eEPPt26CYa-r8zMUtOCiY"; // Replace with your actual API key
+    const searchButton = document.getElementById("search-button");
+    const searchQueryInput = document.getElementById("search-query");
+    const resultsDiv = document.getElementById("results");
+    const youtubeIframe = document.getElementById("youtube-iframe");
+
+    function searchVideos(query) {
+      const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(
+        query + " royalty-free music"
+      )}&key=${API_KEY}&type=video&maxResults=15`;
+
+      fetch(url)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok " + response.statusText);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          displayResults(data.items);
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+          alert(
+            "Failed to fetch videos. Please check your API key and network connection."
+          );
+        });
+    }
+
+    function displayResults(videos) {
+      resultsDiv.innerHTML = "";
+
+      if (!videos || videos.length === 0) {
+        resultsDiv.innerHTML =
+          '<p class="text-white text-center text-lg">No videos found.</p>';
+        return;
+      }
+
+      videos.forEach((video) => {
+        const videoId = video.id.videoId;
+        const videoTitle = video.snippet.title;
+        const videoThumbnail = video.snippet.thumbnails.medium.url;
+
+        const videoElement = document.createElement("div");
+        videoElement.className = "video-card";
+        videoElement.tabIndex = 0;
+        videoElement.innerHTML = `
+          <img src="${videoThumbnail}" alt="Thumbnail image of video titled '${videoTitle}', showing a colorful scene from the video" loading="lazy" />
+          <div class="video-info">
+            <h3 class="video-title" title="${videoTitle}">${videoTitle}</h3>
+            <button class="play-button" aria-label="Play video titled ${videoTitle}" onclick="playVideo('${videoId}')">PLAY ▶</button>
+          </div>
+        `;
+        resultsDiv.appendChild(videoElement);
+      });
+    }
+
+    function playVideo(videoId) {
+      youtubeIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+      youtubeIframe.focus();
+      window.scrollTo({ top: youtubeIframe.offsetTop - 80, behavior: "smooth" });
+    }
+
+    searchButton.addEventListener("click", () => {
+      const query = searchQueryInput.value.trim();
+      if (query) {
+        searchVideos(query);
+      } else {
+        alert("Please enter a search term.");
+      }
+    });
+
+    searchQueryInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        searchButton.click();
+      }
+    });
+  </script>
+</body>
+</html>
